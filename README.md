@@ -1,5 +1,3 @@
-[![Ruby](https://github.com/ryanwi/rails7-on-docker/actions/workflows/ruby.yml/badge.svg)](https://github.com/ryanwi/rails7-on-docker/actions/workflows/ruby.yml)
-[![Docker](https://github.com/ryanwi/rails7-on-docker/actions/workflows/docker.yml/badge.svg)](https://github.com/ryanwi/rails7-on-docker/actions/workflows/docker.yml)
 
 Start here: https://github.com/ryanwi/rails7-on-docker/generate
 
@@ -126,12 +124,3 @@ Dockerizing Ruby and Rails development](https://evilmartians.com/chronicles/ruby
 * [Turbo 7](https://world.hey.com/hotwired/turbo-7-0dd7a27f)
 * [Rails 7 will have three great answers to JavaScript in 2021+](https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b)
 * [Hotwire Turbo Replacing Rails UJS](https://www.driftingruby.com/episodes/hotwire-turbo-replacing-rails-ujs)
-
-## Author
-
-**Ryan Williams**
-
-- <https://www.ryanwilliams.dev>
-- <https://twitter.com/ryanwi>
-- <https://hachyderm.io/@ryanwi>
-- <https://github.com/ryanwi>
