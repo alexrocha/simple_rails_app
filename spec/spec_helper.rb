@@ -34,11 +34,11 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  
+
   SimpleCov.start 'rails' do
     add_filter '/spec/'
   end
-  
+
   if ENV["CODECOV_TOKEN"]
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
   end
