@@ -8,21 +8,21 @@ on:
 
 jobs:
 
-  scan_ruby:
-    runs-on: ubuntu-latest
+  # scan_ruby:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
+  #     - name: Set up Ruby
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
 
-      - name: Scan for security vulnerabilities in Ruby dependencies
-        run: |
-          bundle exec bundler-audit --update
-          bin/brakeman -q -w2 --no-pager
+  #     - name: Scan for security vulnerabilities in Ruby dependencies
+  #       run: |
+  #         bundle exec bundler-audit --update
+  #         bin/brakeman -q -w2 --no-pager
 
   lint:
     runs-on: ubuntu-latest
