@@ -18,6 +18,7 @@
 
 require 'simplecov'
 require 'codecov'
+require 'simplecov-cobertura'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -39,9 +40,7 @@ RSpec.configure do |config|
     add_filter '/spec/'
   end
 
-  if ENV["CODECOV_TOKEN"]
-    SimpleCov.formatter = SimpleCov::Formatter::Codecov
-  end
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.

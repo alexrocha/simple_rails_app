@@ -76,4 +76,5 @@ group :test do
   gem "codecov", require: false
   gem "selenium-webdriver"
   gem "simplecov", require: false
+  gem 'simplecov-cobertura'
 end
