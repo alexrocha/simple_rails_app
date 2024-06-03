@@ -1,0 +1,61 @@
+name: Weekly Run Coverage
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # This cron expression means "at 00:00 on Sunday"
+
+jobs:
+  weekly-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run a script
+      run: echo "This is a weekly run to fetch spec coverage"
+
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432
+      DISABLE_BOOTSNAP: true
+      DISABLE_BOOTSNAP_LOAD_PATH_CACHE: true
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Create database
+        run: |
+          bin/rails db:test:prepare
+
+      - name: Run tests
+        run: bundle exec rspec
+
+      - name: Upload coverage results to Codecov.io
+        uses: codecov/codecov-action@v2
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          version: "v0.1.15"
