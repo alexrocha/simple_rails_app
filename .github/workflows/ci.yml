@@ -79,7 +79,10 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+      - name: Upload coverage results to Codecov.io
+        uses: codecov/codecov-action@v2
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          version: "v0.1.15"
