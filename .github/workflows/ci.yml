@@ -81,10 +81,11 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true # optional (default = false)
-          files: .coverage/codecov-result.json, # optional
+          files: coverage/last_run.json, # optional
           flags: unittests # optional
           name: codecov-umbrella # optional
           verbose: true # optional (default = false)
